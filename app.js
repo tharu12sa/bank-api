@@ -2,7 +2,7 @@ const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
 const raw = JSON.stringify({
-    "userId": 0,
+    "userId": document.getElementById("customerId").value,
     "userName": "yamuna",
     "emailId": "yamu@gmail.com",
     "fullName": "yamunawwww",
