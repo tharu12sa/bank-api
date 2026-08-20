@@ -3,7 +3,7 @@ function btnAddcustomer() {
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-        "userId": document.getElementById("customerId").value,
+        "userId": 0,
         "userName": document.getElementById("userName").value,
         "emailId": document.getElementById("email").value,
         "fullName": document.getElementById("fullName").value,
