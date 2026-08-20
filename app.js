@@ -19,7 +19,15 @@ function btnAddcustomer() {
 
     fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterCustomer", requestOptions)
         .then((response) => response.json())
-        .then((result) => console.log(result))
+        .then((result) => {
+            console.log(result);
+            if (result.result) {
+                alert("Customer Registered Successfully!");
+                window.location.href = "login.html";
+            } else {
+                alert("Registration Failed: " + result.message);
+            }
+        })
         .catch((error) => console.error(error));
 }
 
