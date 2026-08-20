@@ -25,7 +25,8 @@ function btnAddcustomer() {
                 alert("Customer Registered Successfully!");
                 window.location.href = "login.html";
             } else {
-                alert("Registration Failed: " + result.message);
+                // alert("Registration Failed: " + result.message);
+                document.getElementById("fail").textContent=result.message;
             }
         })
         .catch((error) => console.error(error));
