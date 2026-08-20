@@ -67,6 +67,10 @@ function btnAddemployee() {
 }
 // -----------------------------------------------------------------------------
 
+function btnAddlogin(){
+    
+}
+
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
