@@ -3,10 +3,10 @@ myHeaders.append("Content-Type", "application/json");
 
 const raw = JSON.stringify({
     "userId": document.getElementById("customerId").value,
-    "userName": "yamuna",
-    "emailId": "yamu@gmail.com",
-    "fullName": "yamunawwww",
-    "password": "yamuna12"
+    "userName": document.getElementById("customerId").value,
+    "emailId": document.getElementById("customerId").value,
+    "fullName": document.getElementById("customerId").value,
+    "password": document.getElementById("customerId").value
 });
 
 const requestOptions = {
