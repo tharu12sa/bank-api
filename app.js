@@ -17,6 +17,6 @@ const requestOptions = {
 };
 
 fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterCustomer", requestOptions)
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
