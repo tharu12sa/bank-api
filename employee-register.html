@@ -16,45 +16,54 @@
             class="container flex-grow-1 d-flex align-items-center justify-content-center py-4">
             <div class="card border-0 rounded-4 p-4 p-md-5 shadow-lg"
                 style="max-width: 480px; width: 100%;">
-                <h3 class="fw-bold text-center mb-4">Add employee</h3>
+                <h3 class="fw-bold text-center mb-4">Add Customer</h3>
 
                 <form action>
-                    <!-- Customer ID -->
+                    <!-- Employee ID -->
                     <div class="mb-3">
                         <label for="customerId"
-                            class="form-label fw-semibold">Customer ID</label>
+                            class="form-label fw-semibold">Employee ID</label>
                         <input type="text" class="form-control py-2"
                             id="customerId" placeholder="Enter ID (e.g. C001)">
                     </div>
 
-                    <!-- Name -->
+                    <!-- Username -->
                     <div class="mb-3">
-                        <label for="customerName"
-                            class="form-label fw-semibold">Name</label>
+                        <label for="userName"
+                            class="form-label fw-semibold">Userame</label>
                         <input type="text" class="form-control py-2"
-                            id="customerName" placeholder="Enter full name">
+                            id="userName" placeholder="Enter  Username">
                     </div>
 
-                    <!-- Age -->
+                    <!-- email -->
                     <div class="mb-3">
-                        <label for="customerAge"
-                            class="form-label fw-semibold">Age</label>
-                        <input type="number" class="form-control py-2"
-                            id="customerAge" placeholder="Enter age">
+                        <label for="email"
+                            class="form-label fw-semibold">Email</label>
+                        <input type="text" class="form-control py-2"
+                            id="email" placeholder="Enter Email">
                     </div>
 
-                    <!-- Address -->
+                    <!-- fullName -->
                     <div class="mb-3">
-                        <label for="customerAddress"
-                            class="form-label fw-semibold">Address</label>
+                        <label for="fullName"
+                            class="form-label fw-semibold">Full name</label>
                         <input type="text" class="form-control py-2"
-                            id="customerAddress" placeholder="Enter address">
+                            id="fullName" placeholder="Enter Full name">
+                    </div>
+
+                    <!-- password -->
+                    <div class="mb-3">
+                        <label for="pass"
+                            class="form-label fw-semibold">Password</label>
+                        <input type="text" class="form-control py-2"
+                            id="pass" placeholder="Enter Password">
                     </div>
 
                     <!-- Save Button -->
                     <div class="d-grid">
                         <button type="button"
-                            class="btn btn-primary fw-semibold py-2" onclick="btnAddcustomer()">
+                            class="btn btn-primary fw-semibold py-2"
+                            onclick="btnAddcustomer()">
                             Save Customer
                         </button>
                     </div>
