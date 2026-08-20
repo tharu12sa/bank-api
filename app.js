@@ -39,10 +39,10 @@ function btnAddemployee() {
 
     const raw = JSON.stringify({
         "userId": 0,
-        "userName": "string",
-        "emailId": "string",
-        "fullName": "string",
-        "password": "string"
+        "userName": document.getElementById("employeeUserName").value,
+        "emailId": document.getElementById("employeeEmail").value,
+        "fullName": document.getElementById("employeeFullName").value,
+        "password": document.getElementById("employeePass").value
     });
 
     const requestOptions = {
