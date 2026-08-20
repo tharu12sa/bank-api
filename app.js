@@ -4,10 +4,10 @@ function btnAddcustomer() {
 
     const raw = JSON.stringify({
         "userId": 0,
-        "userName": document.getElementById("userName").value,
-        "emailId": document.getElementById("email").value,
-        "fullName": document.getElementById("fullName").value,
-        "password": document.getElementById("pass").value
+        "userName": document.getElementById("customerUserName").value,
+        "emailId": document.getElementById("customerEmail").value,
+        "fullName": document.getElementById("customerFullName").value,
+        "password": document.getElementById("customerPass").value
     });
 
     const requestOptions = {
