@@ -85,7 +85,11 @@ function btnAddlogin() {
 
     fetch("https://api.freeprojectapi.com/api/BankLoan/login", requestOptions)
         .then((response) => response.json())
-        .then((result) => console.log(result))
+        .then((result) => {console.log(result);
+            if(result.result=== false || !result.data){
+                
+            }
+        })
         .catch((error) => console.error(error));
 }
 
