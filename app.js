@@ -22,7 +22,6 @@ function btnAddcustomer() {
         .then((result) => {
             console.log(result);
             if (result.result) {
-                alert("Customer Registered Successfully!");
                 window.location.href = "login.html";
             } else {
                 // alert("Registration Failed: " + result.message);
