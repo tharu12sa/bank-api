@@ -87,7 +87,7 @@ function btnAddlogin() {
         .then((response) => response.json())
         .then((result) => {console.log(result);
             if(result.result=== false || !result.data){
-                
+                document.getElementById("errorLogin").textContent = result.message;
             }
         })
         .catch((error) => console.error(error));
