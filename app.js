@@ -25,7 +25,7 @@ function btnAddcustomer() {
                 window.location.href = "login.html";
             } else {
                 // alert("Registration Failed: " + result.message);
-                document.getElementById("fail").textContent=result.message;
+                document.getElementById("fail").textContent = result.message;
             }
         })
         .catch((error) => console.error(error));
@@ -33,3 +33,25 @@ function btnAddcustomer() {
 
 //-----------------------------------------------------------------------
 
+const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+const raw = JSON.stringify({
+    "userId": 0,
+    "userName": "string",
+    "emailId": "string",
+    "fullName": "string",
+    "password": "string"
+});
+
+const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+};
+
+fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterAsBankUser", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
