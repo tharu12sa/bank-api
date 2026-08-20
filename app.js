@@ -88,6 +88,10 @@ function btnAddlogin() {
         .then((result) => {console.log(result);
             if(result.result=== false || !result.data){
                 document.getElementById("errorLogin").textContent = result.message;
+            }else if (result.data.role === "BankEmployee"){
+                window.location.href = "employee.html";
+            }else {
+                window.location.href = "customer.html"
             }
         })
         .catch((error) => console.error(error));
