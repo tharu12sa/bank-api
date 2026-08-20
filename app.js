@@ -33,25 +33,27 @@ function btnAddcustomer() {
 
 //-----------------------------------------------------------------------
 
-const myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+function btnAddemployee() {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-const raw = JSON.stringify({
-    "userId": 0,
-    "userName": "string",
-    "emailId": "string",
-    "fullName": "string",
-    "password": "string"
-});
+    const raw = JSON.stringify({
+        "userId": 0,
+        "userName": "string",
+        "emailId": "string",
+        "fullName": "string",
+        "password": "string"
+    });
 
-const requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow"
-};
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    };
 
-fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterAsBankUser", requestOptions)
-    .then((response) => response.json())
-    .then((result) => console.log(result))
-    .catch((error) => console.error(error));
+    fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterAsBankUser", requestOptions)
+        .then((response) => response.json())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+}
