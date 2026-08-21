@@ -2,3 +2,82 @@
     background-color:  #031b22 !important;
     font-family: 'Inter', sans-serif;
 }
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0d6efd;
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Profile Icon Styling */
+.profile-dropdown {
+    position: relative;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #0d6efd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+    display: none; /* මුලින් Hide කර ඇත */
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    width: 200px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    display: block; /* Click කළ විට පෙන්වයි */
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+.user-info {
+    padding: 5px 10px;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.user-email {
+    font-size: 12px;
+    color: #666;
+    margin: 2px 0 0 0;
+}
+
+.logout-btn {
+    color: red !important;
+}
