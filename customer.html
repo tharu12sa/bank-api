@@ -12,27 +12,27 @@
             crossorigin="anonymous">
     </head>
     <body class="d-flex flex-column min-vh-100 bdy">
-            <nav class="navbar">
-    <div class="logo">Bank Loan System</div>
-    
-    <!-- Profile Dropdown Section -->
-    <div class="profile-dropdown">
-        <div class="avatar" onclick="toggleDropdown()">
-            <span id="avatarInitials">U</span>
-        </div>
-        
-        <div class="dropdown-menu" id="dropdownMenu">
-            <div class="user-info">
-                <p id="menuName" class="user-name">User Name</p>
-                <p id="menuEmail" class="user-email">user@email.com</p>
+        <div class="container my-3">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="avatar-large" id="cardAvatar">U</div>
+                    <div class="profile-title">
+                        <h2 id="cardName">User Name</h2>
+                        <span class="badge" id="cardRole">Customer</span>
+                    </div>
+                </div>
+                <div class="profile-body">
+                    <div class="info-item">
+                        <span class="label">Customer ID</span>
+                        <span class="value" id="cardId">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Email Address</span>
+                        <span class="value" id="cardEmail">-</span>
+                    </div>
+                </div>
             </div>
-            <hr>
-            <a href="#" onclick="viewAccountDetails()">Account Details</a>
-            <a href="#">Settings</a>
-            <hr>
-            <a href="#" class="logout-btn" onclick="logout()">Logout</a>
         </div>
-    </div>
-</nav>
+        <script src="app.js"></script>
     </body>
 </html>

@@ -96,4 +96,45 @@ function btnAddlogin() {
         })
         .catch((error) => console.error(error));
 }
+// ----------------------------------------------------------------
 
+document.addEventListener("DOMContentLoaded", function () {
+    loadNavbarProfile();
+});
+
+// Profile Data Navbar එකට Load කිරීම
+function loadNavbarProfile() {
+    const fullName = localStorage.getItem("fullName") || "User";
+    const email = localStorage.getItem("email") || "user@gmail.com";
+
+    document.getElementById("menuName").textContent = fullName;
+    document.getElementById("menuEmail").textContent = email;
+
+    // නමේ මුල් අකුර Avatar එකට දැමීම (උදා: Sadu -> S)
+    document.getElementById("avatarInitials").textContent = fullName.charAt(0).toUpperCase();
+}
+
+// Icon එක Click කළ විට Dropdown එක Open/Close කිරීම
+function toggleDropdown() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.classList.toggle("show");
+}
+
+// පිටත තැනක් Click කළ විට Dropdown එක Auto Hide වීම
+window.onclick = function(event) {
+    if (!event.target.matches('.avatar') && !event.target.matches('#avatarInitials')) {
+        const dropdowns = document.getElementsByClassName("dropdown-menu");
+        for (let i = 0; i < dropdowns.length; i++) {
+            let openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+// Logout Functionality
+function logout() {
+    localStorage.clear(); // Clear all saved session data
+    window.location.href = "login.html"; // Redirect to login
+}

@@ -3,81 +3,81 @@
     font-family: 'Inter', sans-serif;
 }
 
-/* Navbar Styling */
-.navbar {
+
+.profile-card {
+    background: #44eb84;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f6eeee;
+    margin: 20px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #000307;
-    padding: 10px 20px;
-    color: white;
+    gap: 16px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
 }
 
-/* Profile Icon Styling */
-.profile-dropdown {
-    position: relative;
-}
-
-.avatar {
-    width: 40px;
-    height: 40px;
+.avatar-large {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background-color: #ffffff;
-    color: #0d6efd;
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 24px;
     font-weight: bold;
-    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
 }
 
-/* Dropdown Menu Styling */
-.dropdown-menu {
-    display: none; /* මුලින් Hide කර ඇත */
-    position: absolute;
-    right: 0;
-    top: 50px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    border-radius: 8px;
-    width: 200px;
-    padding: 10px;
-    z-index: 1000;
-}
-
-.dropdown-menu.show {
-    display: block; /* Click කළ විට පෙන්වයි */
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: 8px 10px;
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.dropdown-menu a:hover {
-    background-color: #f1f1f1;
-    border-radius: 4px;
-}
-
-.user-info {
-    padding: 5px 10px;
-}
-
-.user-name {
-    font-weight: bold;
-    color: #333;
+.profile-title h2 {
     margin: 0;
+    font-size: 20px;
+    color: #1e293b;
 }
 
-.user-email {
+.badge {
+    display: inline-block;
+    background-color: #5278f6;
+    color: #4338ca;
     font-size: 12px;
-    color: #666;
-    margin: 2px 0 0 0;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 4px;
 }
 
-.logout-btn {
-    color: red !important;
+.profile-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+}
+
+.info-item .label {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.info-item .value {
+    color: #0f172a;
+    font-size: 14px;
+    font-weight: 600;
 }
