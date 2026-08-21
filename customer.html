@@ -12,10 +12,8 @@
     <body class="d-flex flex-column min-vh-100 bdy">
 
         <div class="container my-4">
-            <!-- 1. උඩ කොටස: Profile Card එක සහ Apply Card එක පැත්තෙන් පැත්තට -->
             <div class="row g-4">
 
-                <!-- වම් පැත්ත: Profile Card (ඔබගේ පැරණි HTML කොටස) -->
                 <div class="col-md-5">
                     <div class="profile-card">
                         <div class="profile-header">
@@ -42,18 +40,15 @@
                     </div>
                 </div>
 
-                <!-- දකුණු පැත්ත: Apply Loan Action Card එක -->
+    
                 <div class="col-md-7">
                     <div
                         class="card h-100 p-4 border-0 rounded-4 shadow-sm text-white"
                         style="background: #111e25;">
                         <h3 class="fw-bold text-success">Apply For A Bank
                             Loan</h3>
-                        <p class="text-secondary">Need financial support? Apply
-                            for a new personal or commercial loan instantly with
-                            minimal documentation.</p>
+                        <p class="text-light">කැමති ගානක් උබ ගනින්</p>
                         <div class="mt-auto">
-                            <!-- Modal Form එක open වන Button එක -->
                             <button
                                 class="btn btn-success btn-lg w-100 fw-bold rounded-3"
                                 data-bs-toggle="modal"
@@ -114,6 +109,36 @@
                     </div>
                     <div class="modal-body">
                         <form id="loanForm">
+                            <div class="mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" id="loanAmount"
+                                    class="form-control bg-secondary text-white border-0"
+                                    placeholder="Enter fullname" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">NIC</label>
+                                <input type="text" id="loanAmount"
+                                    class="form-control bg-secondary text-white border-0"
+                                    placeholder="Enter NIC" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Birthday</label>
+                                <input type="date" id="loanAmount"
+                                    class="form-control bg-secondary text-white border-0"
+                                    placeholder="Enter Birthday" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" id="loanAmount"
+                                    class="form-control bg-secondary text-white border-0"
+                                    placeholder="Enter email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" id="loanAmount"
+                                    class="form-control bg-secondary text-white border-0"
+                                    placeholder="Enter PhoneNumber" required>
+                            </div>
                             <div class="mb-3">
                                 <label class="form-label">Loan Amount
                                     (LKR)</label>
