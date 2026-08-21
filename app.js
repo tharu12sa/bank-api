@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     const savedCustomerId = localStorage.getItem("customerId");
-    const savedName = localStorage.getItem("UserName");
+    const savedUsername = localStorage.getItem("UserName");
     const savedEmail = localStorage.getItem("email");
     const savedRole = localStorage.getItem("role");
 
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // const cardAvatarEl = document.getElementById("cardAvatar");
 
     document.getElementById("cardId").textContent = savedCustomerId;
-    document.getElementById("cardName").textContent = savedName;
+    document.getElementById("carduserName").textContent = savedUsername;
     document.getElementById("cardEmail").textContent = savedEmail;
     document.getElementById("cardRole").textContent = savedRole;
     document.getElementById("cardAvatar").textContent = savedName.charAt(0).toUpperCase();
