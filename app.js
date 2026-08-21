@@ -125,9 +125,8 @@ function btnAddlogin() {
             } else if (result.data.role === "BankEmployee") {
                 window.location.href = "employee.html";
             } else {
-                // Profile Card එකට අවශ්‍ය සියලුම Data save කරගනිමු
                 localStorage.setItem("customerId", result.data.userId);
-                localStorage.setItem("fullName", result.data.fullName || "User");
+                localStorage.setItem("UserName", result.data.userName || "User");
                 localStorage.setItem("email", result.data.emailId || "N/A");
                 localStorage.setItem("role", result.data.role || "Customer");
 
@@ -138,30 +137,25 @@ function btnAddlogin() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. දැනට සිටින්නේ login.html එකේදැයි පරීක්ෂා කිරීම (Redirect Loop එක වැළැක්වීමට)
-    const isLoginPage = window.location.pathname.includes("login.html");
+
 
     const savedCustomerId = localStorage.getItem("customerId");
-    const savedName = localStorage.getItem("fullName");
+    const savedName = localStorage.getItem("UserName");
     const savedEmail = localStorage.getItem("email");
     const savedRole = localStorage.getItem("role");
 
-    // Login වී ඇත්නම් සහ Elements තිබේ නම් පමණක් UI එක Update කරන්න
-    if (savedCustomerId && !isLoginPage) {
-        const cardIdEl = document.getElementById("cardId");
-        const cardNameEl = document.getElementById("cardName");
-        const cardEmailEl = document.getElementById("cardEmail");
-        const cardRoleEl = document.getElementById("cardRole");
-        const cardAvatarEl = document.getElementById("cardAvatar");
+    const cardIdEl = document.getElementById("cardId");
+    const cardNameEl = document.getElementById("cardName");
+    const cardEmailEl = document.getElementById("cardEmail");
+    const cardRoleEl = document.getElementById("cardRole");
+    const cardAvatarEl = document.getElementById("cardAvatar");
 
-        if (cardIdEl) cardIdEl.textContent = savedCustomerId;
-        if (cardNameEl) cardNameEl.textContent = savedName;
-        if (cardEmailEl) cardEmailEl.textContent = savedEmail;
-        if (cardRoleEl) cardRoleEl.textContent = savedRole;
-        
-        if (cardAvatarEl && savedName) {
-            cardAvatarEl.textContent = savedName.charAt(0).toUpperCase();
-        }
-    }
+    cardIdEl.textContent = savedCustomerId;
+    cardNameEl.textContent = savedName;
+    cardEmailEl.textContent = savedEmail;
+    cardRoleEl.textContent = savedRole;
+    cardAvatarEl.textContent = savedName.charAt(0).toUpperCase();
+
+
 });
 
