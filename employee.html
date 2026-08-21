@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1 id="fuck">gggg</h1>
-</body>
-<script type="module" src="app.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous">
+    </head>
+    <body class="d-flex flex-column min-vh-100 bdy">
+        <div class="container my-3">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="avatar-large" id="cardAvatar">U</div>
+                    <div class="profile-title">
+                        <h2 id="carduserName">User Name</h2>
+                        <span class="badge" id="cardRole">Customer</span>
+                    </div>
+                </div>
+                <div class="profile-body">
+                    <div class="info-item">
+                        <span class="label">Customer ID</span>
+                        <span class="value" id="cardId">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Email Address</span>
+                        <span class="value" id="cardEmail">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">FullName</span>
+                        <span class="value" id="cardName">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
 </html>
