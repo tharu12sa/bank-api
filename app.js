@@ -85,12 +85,14 @@ function btnAddlogin() {
 
     fetch("https://api.freeprojectapi.com/api/BankLoan/login", requestOptions)
         .then((response) => response.json())
-        .then((result) => {console.log(result);
-            if(result.result=== false || !result.data){
+        .then((result) => {
+            console.log(result);
+            if (result.result === false || !result.data) {
                 document.getElementById("errorLogin").textContent = result.message;
-            }else if (result.data.role === "BankEmployee"){
+            } else if (result.data.role === "BankEmployee") {
                 window.location.href = "employee.html";
-            }else {
+            } else {
+                localStorage.setItem("customerId", result.data.userId);
                 window.location.href = "customer.html"
             }
         })
@@ -98,43 +100,3 @@ function btnAddlogin() {
 }
 // ----------------------------------------------------------------
 
-document.addEventListener("DOMContentLoaded", function () {
-    loadNavbarProfile();
-});
-
-// Profile Data Navbar එකට Load කිරීම
-function loadNavbarProfile() {
-    const fullName = localStorage.getItem("fullName") || "User";
-    const email = localStorage.getItem("email") || "user@gmail.com";
-
-    document.getElementById("menuName").textContent = fullName;
-    document.getElementById("menuEmail").textContent = email;
-
-    // නමේ මුල් අකුර Avatar එකට දැමීම (උදා: Sadu -> S)
-    document.getElementById("avatarInitials").textContent = fullName.charAt(0).toUpperCase();
-}
-
-// Icon එක Click කළ විට Dropdown එක Open/Close කිරීම
-function toggleDropdown() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.classList.toggle("show");
-}
-
-// පිටත තැනක් Click කළ විට Dropdown එක Auto Hide වීම
-window.onclick = function(event) {
-    if (!event.target.matches('.avatar') && !event.target.matches('#avatarInitials')) {
-        const dropdowns = document.getElementsByClassName("dropdown-menu");
-        for (let i = 0; i < dropdowns.length; i++) {
-            let openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-// Logout Functionality
-function logout() {
-    localStorage.clear(); // Clear all saved session data
-    window.location.href = "login.html"; // Redirect to login
-}
