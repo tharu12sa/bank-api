@@ -67,38 +67,7 @@ function btnAddemployee() {
 }
 // -----------------------------------------------------------------------------
 
-// function btnAddlogin() {
-//     const myHeaders = new Headers();
-//     myHeaders.append("Content-Type", "application/json");
 
-//     const raw = JSON.stringify({
-//         "userName": document.getElementById("loginName").value,
-//         "password": document.getElementById("loginPass").value
-//     });
-
-//     const requestOptions = {
-//         method: "POST",
-//         headers: myHeaders,
-//         body: raw,
-//         redirect: "follow"
-//     };
-
-//     fetch("https://api.freeprojectapi.com/api/BankLoan/login", requestOptions)
-//         .then((response) => response.json())
-//         .then((result) => {
-//             console.log(result);
-//             if (result.result === false || !result.data) {
-//                 document.getElementById("errorLogin").textContent = result.message;
-//             } else if (result.data.role === "BankEmployee") {
-//                 window.location.href = "employee.html";
-//             } else {
-//                 localStorage.setItem("customerId", result.data.userId);
-//                 window.location.href = "customer.html"
-//             }
-//         })
-//         .catch((error) => console.error(error));
-// }
-// ----------------------------------------------------------------
 
 function btnAddlogin() {
     const myHeaders = new Headers();
@@ -144,17 +113,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedEmail = localStorage.getItem("email");
     const savedRole = localStorage.getItem("role");
 
-    const cardIdEl = document.getElementById("cardId");
-    const cardNameEl = document.getElementById("cardName");
-    const cardEmailEl = document.getElementById("cardEmail");
-    const cardRoleEl = document.getElementById("cardRole");
-    const cardAvatarEl = document.getElementById("cardAvatar");
+    // const cardIdEl = document.getElementById("cardId");
+    // const cardNameEl = document.getElementById("cardName");
+    // const cardEmailEl = document.getElementById("cardEmail");
+    // const cardRoleEl = document.getElementById("cardRole");
+    // const cardAvatarEl = document.getElementById("cardAvatar");
 
-    cardIdEl.textContent = savedCustomerId;
-    cardNameEl.textContent = savedName;
-    cardEmailEl.textContent = savedEmail;
-    cardRoleEl.textContent = savedRole;
-    cardAvatarEl.textContent = savedName.charAt(0).toUpperCase();
+    document.getElementById("cardId").textContent = savedCustomerId;
+    document.getElementById("cardName").textContent = savedName;
+    document.getElementById("cardEmail").textContent = savedEmail;
+    document.getElementById("cardRole").textContent = savedRole;
+    document.getElementById("cardAvatar").textContent = savedName.charAt(0).toUpperCase();
 
 
 });
