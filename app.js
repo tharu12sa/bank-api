@@ -105,7 +105,7 @@ function btnAddlogin() {
         })
         .catch((error) => console.error(error));
 }
-
+// --------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
 
 
@@ -115,11 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedRole = localStorage.getItem("role");
     const SavedFullname = localStorage.getItem("fullName");
 
-    // const cardIdEl = document.getElementById("cardId");
-    // const cardNameEl = document.getElementById("cardName");
-    // const cardEmailEl = document.getElementById("cardEmail");
-    // const cardRoleEl = document.getElementById("cardRole");
-    // const cardAvatarEl = document.getElementById("cardAvatar");
 
     document.getElementById("cardId").textContent = savedCustomerId;
     document.getElementById("carduserName").textContent = savedUsername;
