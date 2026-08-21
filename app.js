@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("cardEmail").textContent = savedEmail;
     document.getElementById("cardRole").textContent = savedRole;
     document.getElementById("cardName").textContent = SavedFullname;
-    document.getElementById("cardAvatar").textContent = savedName.charAt(0).toUpperCase();
+    document.getElementById("cardAvatar").textContent = savedUsername.charAt(0).toUpperCase();
 
 
 });
