@@ -67,6 +67,39 @@ function btnAddemployee() {
 }
 // -----------------------------------------------------------------------------
 
+// function btnAddlogin() {
+//     const myHeaders = new Headers();
+//     myHeaders.append("Content-Type", "application/json");
+
+//     const raw = JSON.stringify({
+//         "userName": document.getElementById("loginName").value,
+//         "password": document.getElementById("loginPass").value
+//     });
+
+//     const requestOptions = {
+//         method: "POST",
+//         headers: myHeaders,
+//         body: raw,
+//         redirect: "follow"
+//     };
+
+//     fetch("https://api.freeprojectapi.com/api/BankLoan/login", requestOptions)
+//         .then((response) => response.json())
+//         .then((result) => {
+//             console.log(result);
+//             if (result.result === false || !result.data) {
+//                 document.getElementById("errorLogin").textContent = result.message;
+//             } else if (result.data.role === "BankEmployee") {
+//                 window.location.href = "employee.html";
+//             } else {
+//                 localStorage.setItem("customerId", result.data.userId);
+//                 window.location.href = "customer.html"
+//             }
+//         })
+//         .catch((error) => console.error(error));
+// }
+// ----------------------------------------------------------------
+
 function btnAddlogin() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -92,11 +125,43 @@ function btnAddlogin() {
             } else if (result.data.role === "BankEmployee") {
                 window.location.href = "employee.html";
             } else {
+                // Profile Card එකට අවශ්‍ය සියලුම Data save කරගනිමු
                 localStorage.setItem("customerId", result.data.userId);
-                window.location.href = "customer.html"
+                localStorage.setItem("fullName", result.data.fullName || "User");
+                localStorage.setItem("email", result.data.emailId || "N/A");
+                localStorage.setItem("role", result.data.role || "Customer");
+
+                window.location.href = "customer.html";
             }
         })
         .catch((error) => console.error(error));
 }
-// ----------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. දැනට සිටින්නේ login.html එකේදැයි පරීක්ෂා කිරීම (Redirect Loop එක වැළැක්වීමට)
+    const isLoginPage = window.location.pathname.includes("login.html");
+
+    const savedCustomerId = localStorage.getItem("customerId");
+    const savedName = localStorage.getItem("fullName");
+    const savedEmail = localStorage.getItem("email");
+    const savedRole = localStorage.getItem("role");
+
+    // Login වී ඇත්නම් සහ Elements තිබේ නම් පමණක් UI එක Update කරන්න
+    if (savedCustomerId && !isLoginPage) {
+        const cardIdEl = document.getElementById("cardId");
+        const cardNameEl = document.getElementById("cardName");
+        const cardEmailEl = document.getElementById("cardEmail");
+        const cardRoleEl = document.getElementById("cardRole");
+        const cardAvatarEl = document.getElementById("cardAvatar");
+
+        if (cardIdEl) cardIdEl.textContent = savedCustomerId;
+        if (cardNameEl) cardNameEl.textContent = savedName;
+        if (cardEmailEl) cardEmailEl.textContent = savedEmail;
+        if (cardRoleEl) cardRoleEl.textContent = savedRole;
+        
+        if (cardAvatarEl && savedName) {
+            cardAvatarEl.textContent = savedName.charAt(0).toUpperCase();
+        }
+    }
+});
 
