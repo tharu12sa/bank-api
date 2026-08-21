@@ -118,7 +118,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("cardName").textContent = localStorage.getItem("fullName");
         document.getElementById("cardAvatar").textContent = localStorage.getItem("UserName").charAt(0).toUpperCase()
     } else {
-
+        document.getElementById("cardEmployeeID").textContent = localStorage.getItem("EmployeeId");
+        document.getElementById("cardEmployeeUsername").textContent = localStorage.getItem("UserName");
+        document.getElementById("cardEmployeeEmail").textContent = localStorage.getItem("email");
+        document.getElementById("cardEmployeeName").textContent = localStorage.getItem("fullName");
+        document.getElementById("cardAvatar2").textContent = localStorage.getItem("UserName").charAt(0).toUpperCase()
     }
 
 });
