@@ -98,6 +98,7 @@ function btnAddlogin() {
                 localStorage.setItem("UserName", result.data.userName || "User");
                 localStorage.setItem("email", result.data.emailId || "N/A");
                 localStorage.setItem("role", result.data.role || "Customer");
+                localStorage.setItem("fullName", result.data.fullName || "Full Name");
 
                 window.location.href = "customer.html";
             }
@@ -112,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedUsername = localStorage.getItem("UserName");
     const savedEmail = localStorage.getItem("email");
     const savedRole = localStorage.getItem("role");
+    const SavedFullname = localStorage.getItem("fullName");
 
     // const cardIdEl = document.getElementById("cardId");
     // const cardNameEl = document.getElementById("cardName");
@@ -123,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("carduserName").textContent = savedUsername;
     document.getElementById("cardEmail").textContent = savedEmail;
     document.getElementById("cardRole").textContent = savedRole;
+    document.getElementById("cardName").textContent = SavedFullname;
     document.getElementById("cardAvatar").textContent = savedName.charAt(0).toUpperCase();
 
 
