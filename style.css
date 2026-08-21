@@ -46,8 +46,8 @@
 
 .badge {
     display: inline-block;
-    background-color: #5278f6;
-    color: #4338ca;
+    background-color: #2255fa;
+    /* color: #4338ca; */
     font-size: 12px;
     font-weight: 600;
     padding: 3px 10px;
