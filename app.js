@@ -92,12 +92,15 @@ function btnAddlogin() {
             if (result.result === false || !result.data) {
                 document.getElementById("errorLogin").textContent = result.message;
             } else if (result.data.role === "BankEmployee") {
+                localStorage.setItem("EmployeeId", result.data.userId);
+                localStorage.setItem("UserName", result.data.userName || "User");
+                localStorage.setItem("email", result.data.emailId || "N/A");
+                localStorage.setItem("fullName", result.data.fullName || "Full Name");
                 window.location.href = "employee.html";
             } else {
                 localStorage.setItem("customerId", result.data.userId);
                 localStorage.setItem("UserName", result.data.userName || "User");
                 localStorage.setItem("email", result.data.emailId || "N/A");
-                localStorage.setItem("role", result.data.role || "Customer");
                 localStorage.setItem("fullName", result.data.fullName || "Full Name");
 
                 window.location.href = "customer.html";
@@ -108,21 +111,15 @@ function btnAddlogin() {
 // --------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
 
+    if (localStorage.getItem("customerId") && document.getElementById("cardId")) {
+        document.getElementById("cardId").textContent = localStorage.getItem("customerId");
+        document.getElementById("carduserName").textContent = localStorage.getItem("UserName");
+        document.getElementById("cardEmail").textContent = localStorage.getItem("email");
+        document.getElementById("cardName").textContent = localStorage.getItem("fullName");
+        document.getElementById("cardAvatar").textContent = localStorage.getItem("UserName").charAt(0).toUpperCase()
+    } else {
 
-    const savedCustomerId = localStorage.getItem("customerId");
-    const savedUsername = localStorage.getItem("UserName");
-    const savedEmail = localStorage.getItem("email");
-    const savedRole = localStorage.getItem("role");
-    const SavedFullname = localStorage.getItem("fullName");
-
-
-    document.getElementById("cardId").textContent = savedCustomerId;
-    document.getElementById("carduserName").textContent = savedUsername;
-    document.getElementById("cardEmail").textContent = savedEmail;
-    document.getElementById("cardRole").textContent = savedRole;
-    document.getElementById("cardName").textContent = SavedFullname;
-    document.getElementById("cardAvatar").textContent = savedUsername.charAt(0).toUpperCase();
-
+    }
 
 });
 
