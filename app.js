@@ -129,5 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // -----------------------------------------------------------------------------------------------
 
 function saveLoan(){
-
+    console.log("save");
+    
 }
