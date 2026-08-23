@@ -128,7 +128,49 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // -----------------------------------------------------------------------------------------------
 
-function saveLoan(){
-    console.log("save");
-    
+function saveLoan() {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        "applicantID": 0,
+        "fullName": "string",
+        "applicationStatus": "string",
+        "panCard": "string",
+        "dateOfBirth": "2026-08-23T02:46:09.790Z",
+        "email": "string",
+        "phone": "string",
+        "address": "string",
+        "city": "string",
+        "state": "string",
+        "zipCode": "string",
+        "annualIncome": 0,
+        "employmentStatus": "string",
+        "creditScore": 0,
+        "assets": "string",
+        "dateApplied": "2026-08-23T02:46:09.790Z",
+        "loans": [
+            {
+                "loanID": 0,
+                "applicantID": 0,
+                "bankName": "string",
+                "loanAmount": 0,
+                "emi": 0
+            }
+        ],
+        "customerId": 0
+    });
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    };
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/AddNewApplication", requestOptions)
+        .then((response) => response.json())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+
 }
