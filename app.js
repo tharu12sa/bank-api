@@ -134,31 +134,31 @@ function saveLoan() {
 
     const raw = JSON.stringify({
         "applicantID": 0,
-        "fullName": "string",
-        "applicationStatus": "string",
-        "panCard": "string",
+        "fullName": document.getElementById("loanName").value,
+        "applicationStatus": "pending",
+        "panCard": document.getElementById("loanNIC").value,
         "dateOfBirth": "2026-08-23T02:46:09.790Z",
-        "email": "string",
-        "phone": "string",
-        "address": "string",
-        "city": "string",
-        "state": "string",
-        "zipCode": "string",
-        "annualIncome": 0,
-        "employmentStatus": "string",
-        "creditScore": 0,
-        "assets": "string",
-        "dateApplied": "2026-08-23T02:46:09.790Z",
+        "email": document.getElementById("loanEmail").value,
+        "phone": document.getElementById("loanPhoneNumber").value,
+        "address": document.getElementById("loanAddress").value,
+        "city": document.getElementById("loanCity").value,
+        "state": document.getElementById("loanState").value,
+        "zipCode": document.getElementById("loanZipecode").value,
+        "annualIncome": document.getElementById("loanIcome").value,
+        "employmentStatus": document.getElementById("loanStatus").value,
+        "creditScore": 750,
+        "assets": document.getElementById("loanAsset").value,
+        "dateApplied": new Date().toISOString().split('T')[0],
         "loans": [
             {
                 "loanID": 0,
                 "applicantID": 0,
-                "bankName": "string",
-                "loanAmount": 0,
-                "emi": 0
+                "bankName": "lanka bank",
+                "loanAmount": document.getElementById("loanAmount").value,
+                "emi":document.getElementById("loanAmount").value*4/100
             }
         ],
-        "customerId": 0
+        "customerId": localStorage.getItem("customerId")
     });
 
     const requestOptions = {
