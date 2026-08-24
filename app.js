@@ -173,4 +173,11 @@ function saveLoan() {
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
 
+        
+
+        document.getElementById("loanForm").reset();
+            const modalEl = document.getElementById('loanModal');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            if (modal) modal.hide();
+
 }
