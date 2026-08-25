@@ -252,6 +252,14 @@ function viewApplication() {
                             <td>${formattedDate}</td>
                             <td>${item.panCard}</td>
                             <td>${item.customerPhone}</td>
+                            <td>
+                                <button class="btn btn-sm btn-success me-2 fw-bold" onclick="updateStatus(${item.applicantID}, 'Approved')">
+                                    Approve
+                                </button>
+                                <button class="btn btn-sm btn-danger fw-bold" onclick="updateStatus(${item.applicantID}, 'Rejected')">
+                                    Reject
+                                </button>
+                            </td>
                         </tr>`
             });
             document.getElementById("loanTableBody2").innerHTML = body;

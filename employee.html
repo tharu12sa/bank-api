@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Employee Dashboard</title>
         <link rel="stylesheet" href="style.css">
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -12,9 +12,12 @@
             crossorigin="anonymous">
     </head>
     <body class="d-flex flex-column min-vh-100 bdy">
+        
         <div class="container my-4">
+            <!-- First Row: Profile Card & Action Card -->
             <div class="row g-4">
 
+                <!-- Profile Card -->
                 <div class="col-md-5">
                     <div class="profile-card">
                         <div class="profile-header">
@@ -31,60 +34,62 @@
                             </div>
                             <div class="info-item">
                                 <span class="label">Email Address</span>
-                                <span class="value"
-                                    id="cardEmployeeEmail">-</span>
+                                <span class="value" id="cardEmployeeEmail">-</span>
                             </div>
                             <div class="info-item">
                                 <span class="label">FullName</span>
-                                <span class="value"
-                                    id="cardEmployeeName">-</span>
+                                <span class="value" id="cardEmployeeName">-</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- View Application Card -->
                 <div class="col-md-7">
-                    <div
-                        class="card h-100 p-4 border-0 rounded-4 shadow-sm text-white align-items-center justify-content-center"
+                    <div class="card h-100 p-4 border-0 rounded-4 shadow-sm text-white align-items-center justify-content-center"
                         style="background: #111e25;">
                         <input type="button" value="View application"
-                            class="btn btn-primary" onclick="viewApplication()">
-
+                            class="btn btn-primary px-4 py-2 fw-bold" onclick="viewApplication()">
                     </div>
                 </div>
-                <div class="row mt-5">
-                    <div class="col-12">
-                        <div class="card border-0 rounded-4 shadow-sm p-4"
-                            style="background: #111e25; color: white;">
-                            <h4 class="fw-bold mb-3 text-success">Loans
-                                application</h4>
-                            <div class="table-responsive">
-                                <table
-                                    class="table table-dark table-hover align-middle">
-                                    <thead>
-                                        <tr>
-                                            <th>Loan ID</th>
-                                            <th>Applied Date</th>
-                                            <th>NIC</th>
-                                            <th>PhoneNumber</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="loanTableBody2">
-                                        <!-- JS හරහා dynamically data පිරේ -->
-                                        <tr>
-                                            <td colspan="5"
-                                                class="text-center text-muted">No
-                                                loan applications submitted
-                                                yet.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+
+            </div> <!-- First Row End -->
+
+            <!-- Second Row: Loan Applications Table -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card border-0 rounded-4 shadow-sm p-4"
+                        style="background: #111e25; color: white;">
+                        <h4 class="fw-bold mb-3 text-success">Loans application</h4>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Loan ID</th>
+                                        <th>Applied Date</th>
+                                        <th>NIC</th>
+                                        <th>PhoneNumber</th>
+                                        <th>Action</th> <!-- Action Header එක එකතු කළා -->
+                                    </tr>
+                                </thead>
+                                <tbody id="loanTableBody2">
+                                    <!-- JS හරහා dynamically data පිරේ -->
+                                    <tr>
+                                        <td colspan="5" class="text-center text-muted">
+                                            No loan applications submitted yet.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+            </div> <!-- Second Row End -->
 
-                <script src="app.js"></script>
-            </body>
-        </html>
+        </div> <!-- Container End -->
+
+        <!-- Bootstrap JS & Custom JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
