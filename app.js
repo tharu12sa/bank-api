@@ -173,14 +173,14 @@ function saveLoan() {
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
 
-    localStorage.setItem("loan amount",document.getElementById("loanAmount").value);
+    localStorage.setItem("loan amount", document.getElementById("loanAmount").value);
 
     document.getElementById("loanForm").reset();
     const modalEl = document.getElementById('loanModal');
     const modal = bootstrap.Modal.getInstance(modalEl);
     if (modal) modal.hide();
 
-    
+
 
 }
 
@@ -209,14 +209,14 @@ function viewLoan() {
         .then((result) => {
             console.log(result);
 
-            
-                const tableBody = document.getElementById("loanTableBody");
-                let body = "";
 
-                result.data.forEach((item) => {
-                    const formattedDate = item.dateApplied ? item.dateApplied.split('T')[0] : '-';
+            const tableBody = document.getElementById("loanTableBody");
+            let body = "";
 
-                    body += `
+            result.data.forEach((item) => {
+                const formattedDate = item.dateApplied ? item.dateApplied.split('T')[0] : '-';
+
+                body += `
                         <tr>
                             <td class="fw-bold">${item.applicantID}</td>
                             <td>${formattedDate}</td>
@@ -224,14 +224,22 @@ function viewLoan() {
                             <td><span class="badge bg-warning text-dark">${item.applicationStatus}</span></td>
                         </tr>
                     `;
-                });
+            });
 
-                tableBody.innerHTML = body;
-            }
+            tableBody.innerHTML = body;
+        }
         )
         .catch((error) => console.error(error));
 }
 
-function viewApplication(){
-    
+function viewApplication() {
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+    };
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/GetApplicationAssigneedToMe?bankEmployeeId=14962", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
 }
