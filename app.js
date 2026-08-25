@@ -234,6 +234,8 @@ function viewLoan() {
 
 function viewApplication() {
     const savedEmployeeID = localStorage.getItem("EmployeeId");
+    const statusview = "Approved";
+    const statusview2 = "Rejected";
     const requestOptions = {
         method: "GET",
         redirect: "follow"
@@ -253,10 +255,10 @@ function viewApplication() {
                             <td>${item.panCard}</td>
                             <td>${item.customerPhone}</td>
                             <td>
-                                <button class="btn btn-sm btn-success me-2 fw-bold" onclick="updateStatus(${item.panCard}, 'Approved')">
+                                <button class="btn btn-sm btn-success me-2 fw-bold" onclick="updateStatus(${item.panCard},${statusview})">
                                     Approve
                                 </button>
-                                <button class="btn btn-sm btn-danger fw-bold" onclick="updateStatus(${item.panCard}, 'Rejected')">
+                                <button class="btn btn-sm btn-danger fw-bold" onclick="updateStatus(${item.panCard},${statusview2})">
                                     Reject
                                 </button>
                             </td>
