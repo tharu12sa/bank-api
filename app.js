@@ -221,7 +221,7 @@ function viewLoan() {
                         <tr>
                             <td class="fw-bold">${item.applicantID}</td>
                             <td>${formattedDate}</td>
-                            <td>${item.employmentStatus}</td>
+                            <td>${item.assignedToBankEmployee}</td>
                             <td><span class="badge bg-warning text-dark">${item.applicationStatus}</span></td>
                         </tr>
                     `;
