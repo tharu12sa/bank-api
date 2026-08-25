@@ -257,7 +257,4 @@ function viewApplication() {
             document.getElementById("loanTableBody2").innerHTML = body;
         })
         .catch((error) => console.error(error));
-
-
-
 }
