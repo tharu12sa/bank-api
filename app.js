@@ -173,7 +173,7 @@ function saveLoan() {
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
 
-
+    localStorage.setItem("loan amount",document.getElementById("loanAmount").value);
 
     document.getElementById("loanForm").reset();
     const modalEl = document.getElementById('loanModal');
