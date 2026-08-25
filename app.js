@@ -273,6 +273,11 @@ function viewApplication() {
 
 function updateStatus(nic, statusview) {
 
+    const row = btnElement.closest("tr");
+    if (row) {
+        row.remove();
+    }
+
     const requestOptions = {
         method: "GET",
         redirect: "follow"
