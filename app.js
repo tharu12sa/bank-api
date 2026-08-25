@@ -239,7 +239,7 @@ function viewApplication() {
     };
 
     fetch("https://api.freeprojectapi.com/api/BankLoan/GetApplicationAssigneedToMe?bankEmployeeId=14962", requestOptions)
-        .then((response) => response.text())
+        .then((response) => response.json())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
 }
