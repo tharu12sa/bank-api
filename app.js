@@ -246,9 +246,10 @@ function viewApplication() {
         .then((result) => {
             console.log(result)
             let body = "";
-            result.data.forEach((item) => {
-                const formattedDate = item.dateApplied ? item.dateApplied.split('T')[0] : '-';
-                body += `
+            if (result.data.applicationStatus === statusview && result.data.applicationStatus === statusview2) {
+                result.data.forEach((item) => {
+                    const formattedDate = item.dateApplied ? item.dateApplied.split('T')[0] : '-';
+                    body += `
                         <tr>
                             <td class="fw-bold">${item.applicantID}</td>
                             <td>${formattedDate}</td>
@@ -263,7 +264,8 @@ function viewApplication() {
                                 </button>
                             </td>
                         </tr>`
-            });
+                });
+            }
             document.getElementById("loanTableBody2").innerHTML = body;
         })
         .catch((error) => console.error(error));
