@@ -233,13 +233,30 @@ function viewLoan() {
 }
 
 function viewApplication() {
+    const savedEmployeeID = localStorage.getItem("EmployeeId");
     const requestOptions = {
         method: "GET",
         redirect: "follow"
     };
 
-    fetch("https://api.freeprojectapi.com/api/BankLoan/GetApplicationAssigneedToMe?bankEmployeeId=14962", requestOptions)
+    fetch(`https://api.freeprojectapi.com/api/BankLoan/GetApplicationAssigneedToMe?bankEmployeeId=${savedEmployeeID}`, requestOptions)
         .then((response) => response.json())
-        .then((result) => console.log(result))
+        .then((result) => {
+            console.log(result)
+            let body = "";
+            result.data.forEach((item) => {
+                body += `
+                        <tr>
+                            <td class="fw-bold">${item.applicantID}</td>
+                            <td>${item.dateApplied}</td>
+                            <td>${item.panCard}</td>
+                            <td>${item.customerPhone}</td>
+                        </tr>`
+            });
+            document.getElementById("loanTableBody2").innerHTML = body;
+        })
         .catch((error) => console.error(error));
+
+
+
 }
