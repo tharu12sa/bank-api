@@ -253,10 +253,10 @@ function viewApplication() {
                             <td>${item.panCard}</td>
                             <td>${item.customerPhone}</td>
                             <td>
-                                <button class="btn btn-sm btn-success me-2 fw-bold" onclick="updateStatus(${item.applicantID}, 'Approved')">
+                                <button class="btn btn-sm btn-success me-2 fw-bold" onclick="updateStatus(${item.panCard}, 'Approved')">
                                     Approve
                                 </button>
-                                <button class="btn btn-sm btn-danger fw-bold" onclick="updateStatus(${item.applicantID}, 'Rejected')">
+                                <button class="btn btn-sm btn-danger fw-bold" onclick="updateStatus(${item.panCard}, 'Rejected')">
                                     Reject
                                 </button>
                             </td>
@@ -265,4 +265,18 @@ function viewApplication() {
             document.getElementById("loanTableBody2").innerHTML = body;
         })
         .catch((error) => console.error(error));
+}
+
+function updateStatus(nic, statusview) {
+
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+    };
+
+    fetch(`https://api.freeprojectapi.com/api/BankLoan/CheckApplicationStatus?panNo=${nic}&status=${statusview}`, requestOptions)
+        .then((response) => response.json())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+
 }
