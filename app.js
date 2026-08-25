@@ -155,7 +155,7 @@ function saveLoan() {
                 "applicantID": 0,
                 "bankName": "lanka bank",
                 "loanAmount": document.getElementById("loanAmount").value,
-                "emi":document.getElementById("loanAmount").value*4/100
+                "emi": document.getElementById("loanAmount").value * 4 / 100
             }
         ],
         "customerId": localStorage.getItem("customerId")
@@ -173,11 +173,23 @@ function saveLoan() {
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
 
-        
 
-        document.getElementById("loanForm").reset();
-            const modalEl = document.getElementById('loanModal');
-            const modal = bootstrap.Modal.getInstance(modalEl);
-            if (modal) modal.hide();
+
+    document.getElementById("loanForm").reset();
+    const modalEl = document.getElementById('loanModal');
+    const modal = bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
+
+    
 
 }
+
+const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+    };
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/GetMyApplications?customerId=14952", requestOptions)
+        .then((response) => response.json())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
