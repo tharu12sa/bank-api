@@ -184,12 +184,51 @@ function saveLoan() {
 
 }
 
-const requestOptions = {
+// function viewLoan(){
+//     const requestOptions = {
+//         method: "GET",
+//         redirect: "follow"
+//     };
+
+//     fetch("https://api.freeprojectapi.com/api/BankLoan/GetMyApplications?customerId=14952", requestOptions)
+//         .then((response) => response.json())
+//         .then((result) => console.log(result))
+//         .catch((error) => console.error(error));
+// }
+
+function viewLoan() {
+    const savedCustomerId = localStorage.getItem("customerId");
+
+    const requestOptions = {
         method: "GET",
         redirect: "follow"
     };
 
-    fetch("https://api.freeprojectapi.com/api/BankLoan/GetMyApplications?customerId=14952", requestOptions)
+    fetch(`https://api.freeprojectapi.com/api/BankLoan/GetMyApplications?customerId=${savedCustomerId}`, requestOptions)
         .then((response) => response.json())
-        .then((result) => console.log(result))
+        .then((result) => {
+            console.log(result);
+
+            
+                const tableBody = document.getElementById("loanTableBody");
+                let body = "";
+
+                result.data.forEach((item) => {
+                    // Date එක YYYY-MM-DD විදියට කඩා ගැනීම
+                    const formattedDate = item.dateApplied ? item.dateApplied.split('T')[0] : '-';
+
+                    body += `
+                        <tr>
+                            <td class="fw-bold">${item.applicantID}</td>
+                            <td>${formattedDate}</td>
+                            <td>${item.employmentStatus}</td>
+                            <td><span class="badge bg-warning text-dark">${item.applicationStatus}</span></td>
+                        </tr>
+                    `;
+                });
+
+                tableBody.innerHTML = body;
+            }
+        )
         .catch((error) => console.error(error));
+}
