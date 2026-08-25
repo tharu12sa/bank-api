@@ -214,7 +214,6 @@ function viewLoan() {
                 let body = "";
 
                 result.data.forEach((item) => {
-                    // Date එක YYYY-MM-DD විදියට කඩා ගැනීම
                     const formattedDate = item.dateApplied ? item.dateApplied.split('T')[0] : '-';
 
                     body += `
