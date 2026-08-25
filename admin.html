@@ -19,23 +19,25 @@
                         class="fw-bold mb-3 text-success d-flex justify-content-between align-items-center">
                         All users
                         <input class="btn btn-info" type="button"
-                            value="view loan" onclick="viewLoan()">
+                            value="view user" onclick="viewLoan()">
                     </h4>
                     <div class="table-responsive">
                         <table
                             class="table table-dark table-hover align-middle">
                             <thead>
                                 <tr>
-                                    <th>Loan ID</th>
-                                    <th>Applied Date</th>
-                                    <th>BankEmployee</th>
-                                    <th>Status</th>
+                                    <th>ID</th>
+                                    <th>UserName</th>
+                                    <th>Password</th>
+                                    <th>Role</th>
+                                    <th>CreateDate</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody id="loanTableBody">
                                 <!-- JS හරහා dynamically data පිරේ -->
                                 <tr>
-                                    <td colspan="4"
+                                    <td colspan="6"
                                         class="text-center text-muted">
                                         No loan applications submitted yet.
                                     </td>
