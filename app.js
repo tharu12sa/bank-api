@@ -231,3 +231,7 @@ function viewLoan() {
         )
         .catch((error) => console.error(error));
 }
+
+function viewApplication(){
+    
+}
