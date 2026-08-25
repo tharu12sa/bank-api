@@ -256,10 +256,10 @@ function viewApplication() {
                             <td>${item.panCard}</td>
                             <td>${item.customerPhone}</td>
                             <td>
-                                <button class="btn btn-sm btn-success me-2 fw-bold" onclick="updateStatus(${item.panCard},${statusview})">
+                                <button class="btn btn-sm btn-success me-2 fw-bold" onclick="updateStatus(this,${item.panCard},${statusview})">
                                     Approve
                                 </button>
-                                <button class="btn btn-sm btn-danger fw-bold" onclick="updateStatus(${item.panCard},${statusview2})">
+                                <button class="btn btn-sm btn-danger fw-bold" onclick="updateStatus(this,${item.panCard},${statusview2})">
                                     Reject
                                 </button>
                             </td>
