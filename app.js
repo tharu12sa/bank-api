@@ -234,8 +234,6 @@ function viewLoan() {
 
 function viewApplication() {
     const savedEmployeeID = localStorage.getItem("EmployeeId");
-    const statusview = "Approved";
-    const statusview2 = "Rejected";
     const requestOptions = {
         method: "GET",
         redirect: "follow"
@@ -244,35 +242,40 @@ function viewApplication() {
     fetch(`https://api.freeprojectapi.com/api/BankLoan/GetApplicationAssigneedToMe?bankEmployeeId=${savedEmployeeID}`, requestOptions)
         .then((response) => response.json())
         .then((result) => {
-            console.log(result)
+            console.log(result);
             let body = "";
-            if (result.data.applicationStatus === statusview && result.data.applicationStatus === statusview2) {
+
+            if (result.data && Array.isArray(result.data)) {
                 result.data.forEach((item) => {
-                    const formattedDate = item.dateApplied ? item.dateApplied.split('T')[0] : '-';
-                    body += `
-                        <tr>
-                            <td class="fw-bold">${item.applicantID}</td>
-                            <td>${formattedDate}</td>
-                            <td>${item.panCard}</td>
-                            <td>${item.customerPhone}</td>
-                            <td>
-                                <button class="btn btn-sm btn-success me-2 fw-bold" onclick="updateStatus(this,${item.panCard},${statusview})">
-                                    Approve
-                                </button>
-                                <button class="btn btn-sm btn-danger fw-bold" onclick="updateStatus(this,${item.panCard},${statusview2})">
-                                    Reject
-                                </button>
-                            </td>
-                        </tr>`
+                    if (item.applicationStatus != "Approved" && item.applicationStatus != "Rejected") {
+                        const formattedDate = item.dateApplied ? item.dateApplied.split('T')[0] : '-';
+
+                        body += `
+                            <tr>
+                                <td class="fw-bold">${item.applicantID}</td>
+                                <td>${formattedDate}</td>
+                                <td>${item.panCard}</td>
+                                <td>${item.customerPhone}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-success me-2 fw-bold" onclick="updateStatus(this, '${item.panCard}', 'Approved')">
+                                        Approve
+                                    </button>
+                                    <button class="btn btn-sm btn-danger fw-bold" onclick="updateStatus(this, '${item.panCard}', 'Rejected')">
+                                        Reject
+                                    </button>
+                                </td>
+                            </tr>`;
+                    }
                 });
             }
+
             document.getElementById("loanTableBody2").innerHTML = body;
         })
         .catch((error) => console.error(error));
 }
 
-function updateStatus(nic, statusview) {
 
+function updateStatus(btnElement, nic, statusview) {
     const row = btnElement.closest("tr");
     if (row) {
         row.remove();
@@ -287,5 +290,4 @@ function updateStatus(nic, statusview) {
         .then((response) => response.json())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
-
 }
