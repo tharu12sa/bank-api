@@ -245,10 +245,11 @@ function viewApplication() {
             console.log(result)
             let body = "";
             result.data.forEach((item) => {
+                const formattedDate = item.dateApplied ? item.dateApplied.split('T')[0] : '-';
                 body += `
                         <tr>
                             <td class="fw-bold">${item.applicantID}</td>
-                            <td>${item.dateApplied}</td>
+                            <td>${formattedDate}</td>
                             <td>${item.panCard}</td>
                             <td>${item.customerPhone}</td>
                         </tr>`
