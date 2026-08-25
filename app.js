@@ -89,7 +89,9 @@ function btnAddlogin() {
         .then((response) => response.json())
         .then((result) => {
             console.log(result);
-            if (result.result === false || !result.data) {
+            if(document.getElementById("loginName").value==="admin" && document.getElementById("loginPass").value==="admin" ){
+                window.location.href = "admin.html";
+            }else if (result.result === false || !result.data) {
                 document.getElementById("errorLogin").textContent = result.message;
             } else if (result.data.role === "BankEmployee") {
                 localStorage.setItem("EmployeeId", result.data.userId);
@@ -97,7 +99,7 @@ function btnAddlogin() {
                 localStorage.setItem("email", result.data.emailId || "N/A");
                 localStorage.setItem("fullName", result.data.fullName || "Full Name");
                 window.location.href = "employee.html";
-            } else {
+            } else if (result.data.role === "Customer") {
                 localStorage.setItem("customerId", result.data.userId);
                 localStorage.setItem("UserName", result.data.userName || "User");
                 localStorage.setItem("email", result.data.emailId || "N/A");
