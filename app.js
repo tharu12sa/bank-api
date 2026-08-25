@@ -196,7 +196,7 @@ function saveLoan() {
 //         .then((response) => response.json())
 //         .then((result) => console.log(result))
 //         .catch((error) => console.error(error));
-// }
+// }----------------------------------------------------------------------------------------------
 
 function viewLoan() {
     const savedCustomerId = localStorage.getItem("customerId");
@@ -233,7 +233,7 @@ function viewLoan() {
         )
         .catch((error) => console.error(error));
 }
-
+// -----------------------------------------------------------------------------------------------
 function viewApplication() {
     const savedEmployeeID = localStorage.getItem("EmployeeId");
     const requestOptions = {
@@ -293,3 +293,4 @@ function updateStatus(btnElement, nic, statusview) {
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
 }
+// ---------------------------------------------------------------------------------------------------
