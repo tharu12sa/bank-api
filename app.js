@@ -89,9 +89,9 @@ function btnAddlogin() {
         .then((response) => response.json())
         .then((result) => {
             console.log(result);
-            if(document.getElementById("loginName").value==="admin" && document.getElementById("loginPass").value==="admin" ){
+            if (document.getElementById("loginName").value === "admin" && document.getElementById("loginPass").value === "admin") {
                 window.location.href = "admin.html";
-            }else if (result.result === false || !result.data) {
+            } else if (result.result === false || !result.data) {
                 document.getElementById("errorLogin").textContent = result.message;
             } else if (result.data.role === "BankEmployee") {
                 localStorage.setItem("EmployeeId", result.data.userId);
@@ -295,14 +295,14 @@ function updateStatus(btnElement, nic, statusview) {
 }
 // ---------------------------------------------------------------------------------------------------
 
-function viewUsers(){
+function viewUsers() {
     const requestOptions = {
-  method: "GET",
-  redirect: "follow"
-};
+        method: "GET",
+        redirect: "follow"
+    };
 
-fetch("https://api.freeprojectapi.com/api/BankLoan/GetAllUsers", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.error(error));
+    fetch("https://api.freeprojectapi.com/api/BankLoan/GetAllUsers", requestOptions)
+        .then((response) => response.json())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
 }
