@@ -295,13 +295,46 @@ function updateStatus(btnElement, nic, statusview) {
 }
 // ---------------------------------------------------------------------------------------------------
 
-function viewUsers() {
+function ViewUsers() {
     const requestOptions = {
         method: "GET",
         redirect: "follow"
     };
 
     fetch("https://api.freeprojectapi.com/api/BankLoan/GetAllUsers", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+            console.log(result);
+            let body = "";
+            result.data.forEach((item) => {
+
+                const formattedDate = item.createdDate ? item.createdDate.split('T')[0] : '-';
+
+                body += `
+                        <tr>
+                            <td class="fw-bold">${item.userId}</td>
+                            <td>${item.userName}</td>
+                            <td>${item.password}</td>
+                            <td>${item.role}</td>
+                            <td>${formattedDate}</td>
+                            <td>
+                                <button class="btn btn-sm btn-danger fw-bold" onclick="deleteUser('${item.userId}')">
+                                        Delete
+                                    </button></td>
+                        </tr>`;
+            });
+            document.getElementById("loanTableBody3").innerHTML = body;
+        })
+        .catch((error) => console.error(error));
+}
+
+function deleteUser(id) {
+    const requestOptions = {
+        method: "DELETE",
+        redirect: "follow"
+    };
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/DeleteUserByUserId?userId=14847", requestOptions)
         .then((response) => response.json())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
