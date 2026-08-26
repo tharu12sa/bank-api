@@ -318,7 +318,7 @@ function ViewUsers() {
                             <td>${item.role}</td>
                             <td>${formattedDate}</td>
                             <td>
-                                <button class="btn btn-sm btn-danger fw-bold" onclick="deleteUser('${item.userId}')">
+                                <button class="btn btn-sm btn-danger fw-bold" onclick="deleteUser(this,'${item.userId}')">
                                         Delete
                                     </button></td>
                         </tr>`;
@@ -329,12 +329,17 @@ function ViewUsers() {
 }
 
 function deleteUser(id) {
+    const row = btnElement.closest("tr");
+    if (row) {
+        row.remove();
+    }
+    
     const requestOptions = {
         method: "DELETE",
         redirect: "follow"
     };
 
-    fetch("https://api.freeprojectapi.com/api/BankLoan/DeleteUserByUserId?userId=14847", requestOptions)
+    fetch(`https://api.freeprojectapi.com/api/BankLoan/DeleteUserByUserId?userId=${id}`, requestOptions)
         .then((response) => response.json())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
