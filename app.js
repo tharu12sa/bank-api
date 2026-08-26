@@ -328,12 +328,12 @@ function ViewUsers() {
         .catch((error) => console.error(error));
 }
 
-function deleteUser(id) {
+function deleteUser(btnElement,id) {
     const row = btnElement.closest("tr");
     if (row) {
         row.remove();
     }
-    
+
     const requestOptions = {
         method: "DELETE",
         redirect: "follow"
